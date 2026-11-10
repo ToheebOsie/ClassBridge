@@ -1,0 +1,34 @@
+{
+  "name": "classbridge",
+  "private": true,
+  "version": "0.1.0",
+  "description": "ClassBridge: a school platform for Nigerian secondary schools.",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev -w @classbridge/web",
+    "dev:api": "npm run dev -w @classbridge/api",
+    "build": "npm run build -w @classbridge/web",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "npm run test --workspaces --if-present",
+    "check": "npm run lint && npm run test && npm run build",
+    "db:up": "docker compose up -d db",
+    "db:migrate": "npm run migrate -w @classbridge/api"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.14.0",
+    "prettier": "^3.9.10",
+    "typescript": "^7.0.2"
+  }
+}
